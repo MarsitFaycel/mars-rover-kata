@@ -17,4 +17,6 @@ public enum Direction {
     public char getValue() {
         return value;
     }
+
+
 }

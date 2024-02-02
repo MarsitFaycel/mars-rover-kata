@@ -1,7 +1,7 @@
 public class Rover {
 
-    private  Coordinate coordinate;
-    private  Direction direction ;
+    private Coordinate coordinate;
+    private Direction direction;
 
     public Rover() {
     }
@@ -21,5 +21,24 @@ public class Rover {
 
     public char getDirection() {
         return direction.getValue();
+    }
+
+    public void run(String instruction) {
+        for (char ins : instruction.toCharArray()) {
+            if (ins == 'f') {
+                if (getDirection() == Direction.NORTH.value) {
+                    int currentCoordinateY = getCoordinateY();
+                    currentCoordinateY = (++currentCoordinateY % 6);
+                    coordinate.setCoordinateY(currentCoordinateY);
+                }
+                if (getDirection() == Direction.EAST.value) {
+                    int currentCoordinateX = getCoordinateX();
+                    currentCoordinateX = (++currentCoordinateX % 6);
+                    coordinate.setCoordinateX(currentCoordinateX);
+                }
+
+            }
+        }
+
     }
 }
